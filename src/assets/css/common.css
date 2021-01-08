@@ -1,0 +1,217 @@
+/* 公共样式 */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: MicrosoftYaHei; 
+    color:#676767;
+    /* 全局定义默认颜色 */
+    /* --defaultcolors:#57BEAD; */
+    --defaultcolors:#527356;
+    --defaultfontColor:#313131;
+    --f12:12px;
+    --f13:13px;
+    --f14:14px;
+    --f15:15px;
+    --f16:16px;
+    --f20:20px;
+    margin: 0;
+    padding: 0;
+    font-size:#313131;
+}
+
+ul li{
+    list-style: none;
+}
+a {
+    text-decoration: none
+}
+
+span,a,i,b{
+    font-style: inherit;
+    display: inline-block;
+}
+.c-p{
+    cursor: pointer;
+}
+.d-i-b{
+    display: inline-block;
+}
+.opacity-0{
+    opacity: 0;
+    filter:alpha(opacity=0); 
+}
+.b-s-bb{
+    box-sizing: border-box;
+}
+/* width */
+.w-100-precent{
+    width: 100%;
+}
+/* height */
+.h-100-precent{
+    height: 100%;
+}
+/* margin&padding */
+.m-r-0{
+    margin:0!important;
+}
+.m-r-10{
+    margin:10px!important;
+}
+.m-r-l-10{
+    margin-left: 10px;
+}
+.m-r-r-10{
+    margin-right: 10px!important;
+}
+.m-r-t-10{
+    margin-top: 10px;
+}
+.m-r-b-10{
+    margin-bottom: 10px;
+}
+.p-d-0{
+    padding: 0!important;
+}
+.p-d-10{
+    padding: 10px !important;
+}
+.p-d-l-10{
+    padding-left: 10px;
+}
+.p-d-r-10{
+    padding-right: 10px;
+}
+.p-d-t-10{
+    padding-top: 10px;
+}
+.p-d-b-10{
+    padding-bottom: 10px;
+}
+/* float&clear float */
+.f-l{
+    float: left;
+}
+.f-r{
+    float: right;
+}
+.o-v-h{
+    overflow: hidden;
+}
+.o-v-a{
+    overflow: auto;
+}
+/* font */
+.t-a-c{
+    text-align: center;
+}
+.t-a-l{
+    text-align: left;
+}
+.t-a-r{
+    text-align: right;
+}
+.text-ellip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.f-t-12{
+    font-size: var(--f12);
+}
+.f-t-13{
+    font-size: var(--f13);
+}
+.f-t-14{
+    font-size: var(--f14);
+}
+.f-t-16{
+    font-size: var(--f16);
+}
+.f-t-20{
+    font-size: var(--f20);
+}
+
+/* vertical-align*/
+.v-a-m{
+    vertical-align: middle;
+}
+.v-a-u{
+    vertical-align: unset;;
+}
+.v-a-b{
+    vertical-align: bottom;
+}
+.v-a-s{
+    vertical-align: sub;
+}
+.v-a-t{
+    vertical-align: top;
+}
+
+/* flex */
+.flex-start{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+.flex-end{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+.flex-space-around{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-around;
+    align-content: flex-start;
+}
+.flex-space-between{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-between;
+    align-content: flex-start;
+}
+/* color */
+.c-default{
+    color:var(--defaultcolors);
+}
+.c-link{
+    color:#337ab7;
+}
+/* background */
+
+/* 动画 */
+.move-enter-active,
+.move-leave-active {
+    transition: opacity .5s;
+}
+.move-enter,
+.move-leave {
+    opacity: 0;
+}
+.move{
+    animation: animate_point 1s infinite;
+}
+@keyframes animate_point{
+    0%{
+        left:0
+    }
+    50%{
+        left:10px;
+    }
+    100%{
+        left:0
+    }
+};
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+/* element-ui 自定义样式 */
+/* button */
+.el-button--primary{
+    background-color:  var(--defaultcolors);
+    border-color:  var(--defaultcolors);
+}
+.el-button--primary:focus, .el-button--primary:hover{
+    background: #3d5a41;
+    border-color: #3d5a41;
+    color: #FFF;
+}
+/* slider */
+ /* {
+    background-color:#dbd7d7!important;
+    color:var(--defaultcolors);
+} */
+.el-menu-item:focus,.el-menu-item:hover,.el-menu-item.is-active,.el-submenu__title:hover{
+    background-color:var(--defaultcolors)!important; 
+    color: #F8EFE0!important; 
+}
+
+.el-menu-item, .el-submenu__title,.el-submenu .el-menu-item{
+    height: 30px;
+    line-height: 30px;
+    padding:0!important;
+}
+/* tab */
+.el-tabs__item.is-active,.el-tabs__item:hover{
+    color: var(--defaultcolors);
+}
+.el-tabs__active-bar{
+    background-color: var(--defaultcolors);
+}
+/* 分割线 */
+.el-divider--horizontal{
+    margin: 4px 0;
+}
