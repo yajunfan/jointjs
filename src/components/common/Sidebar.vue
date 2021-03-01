@@ -17,30 +17,20 @@
                 <el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="white"
                     text-color="black"  unique-opened router>
                     <template v-for="item in items">
-                        <template v-if="item.subs">
-                            <el-submenu :index="item.index" :key="item.index">
+                        <template v-if="item.subs" >
+                            <el-submenu :index="item.index" :key="item.index" >
                                 <template slot="title">
                                     <i :class="item.icon"></i>
-                                    <span slot="title">{{ item.title }}</span>
+                                    <span  @click="routhChange(item.index)">{{ item.title }}</span>
                                 </template>
                                 <template v-for="subItem in item.subs">
-                                    <el-submenu
-                                        v-if="subItem.subs"
-                                        :index="subItem.index"
-                                        :key="subItem.index"
-                                    >
-                                        <template slot="title">{{ subItem.title }}</template>
-                                        <el-menu-item
-                                            v-for="(threeItem,i) in subItem.subs"
-                                            :key="i"
-                                            :index="threeItem.index"
-                                        >{{ threeItem.title }}</el-menu-item>
+                                    <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index" >
+                                        <template slot="title" >{{ subItem.title }}</template>
+                                        <el-menu-item v-for="(threeItem,i) in subItem.subs" :key="i"
+                                            :index="threeItem.index" >{{ threeItem.title }}
+                                        </el-menu-item>
                                     </el-submenu>
-                                    <el-menu-item
-                                        v-else
-                                        :index="subItem.index"
-                                        :key="subItem.index"
-                                    >{{ subItem.title }}</el-menu-item>
+                                    <el-menu-item v-else :index="subItem.index" :key="subItem.index">{{ subItem.title }}</el-menu-item>
                                 </template>
                             </el-submenu>
                         </template>
@@ -71,19 +61,27 @@ export default {
                 "option":"配置项手册"
             },
             tutorialLists:[
-                {title:"5分钟上手jointjs",index:"startTutorial"}
+                {title:"5分钟上手jointjs",index:"startTutorial"},
+                {title:"Paper&Graph",index:"PaperGraph"},
             ]
         };
     },
     computed: {
         onRoutes() {
-            console.log(1111,this.$route.path);
-            
-            return this.$route.path.replace('/', '');
+            console.log(777,this.$route)
+             let obj={
+                index:this.$route.query.id,
+                name:this.$route.meta.title
+            };
+            bus.$emit("childRouthChange",obj)
+            if(this.$route.path!='/startTutorial'&&this.$route.path!='/configStart'){
+                return this.$route.path.replace('/', '');
+            };
+           
         },
         ...mapState({
             items(state) {
-            return state.main.items;
+                return state.main.items;
             }
         })
 
@@ -93,12 +91,16 @@ export default {
             let path = this.$route.path;
             switch(this.activeName){
                 case "tutorial":
-                    this.$router.push({path:'/startTutorial'}); 
+                    // this.$router.push({path:'/startTutorial'}); 
                     break; 
                 case "option":
-                    this.$router.push({path:'/table'}); 
+                    // this.$router.push({path:'/configStart'}); 
                     break; 
             }
+        },
+        routhChange(path){
+            console.log(777,path)
+            this.$router.push({path:"/"+path}); 
         }
     }
 };
@@ -122,5 +124,9 @@ export default {
 }
 .sidebar > ul {
     height: 100%;
+}
+.el-submenu .el-menu-item{
+    min-width: 100px;
+    padding-left: 30px!important;
 }
 </style>

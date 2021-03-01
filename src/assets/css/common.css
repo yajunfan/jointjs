@@ -4,7 +4,7 @@
     padding: 0;
 }
 body {
-    font-family: MicrosoftYaHei; 
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', 'Source Sans Pro', sans-serif;
     color:#676767;
     /* 全局定义默认颜色 */
     /* --defaultcolors:#57BEAD; */
@@ -18,15 +18,9 @@ body {
     --f20:20px;
     margin: 0;
     padding: 0;
-    font-size:#313131;
+    font-size:14px;
 }
 
-ul li{
-    list-style: none;
-}
-a {
-    text-decoration: none
-}
 
 span,a,i,b{
     font-style: inherit;
@@ -45,6 +39,12 @@ span,a,i,b{
 .b-s-bb{
     box-sizing: border-box;
 }
+
+/* border */
+.bor-b{
+    border-bottom: 1px solid lightgray;
+}
+
 /* width */
 .w-100-precent{
     width: 100%;
@@ -181,7 +181,14 @@ span,a,i,b{
     color:var(--defaultcolors);
 }
 .c-link{
-    color:#337ab7;
+    color:#0c65c1;
+    font-weight: 600;
+}
+.c-method{
+    color:#e21f55;
+}
+.c-highlight{
+    color:#3c4260;
 }
 /* background */
 

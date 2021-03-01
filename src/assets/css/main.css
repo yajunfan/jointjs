@@ -8,11 +8,7 @@ body,
 }
 
 body {
-    font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
-}
-
-a {
-    text-decoration: none
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', 'Source Sans Pro', sans-serif;
 }
 
 
@@ -45,127 +41,18 @@ a {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
-.crumbs {
-    margin: 10px 0;
+/* border  */
+.bg-border{
+    border:1px solid lightgray;
+    background: #efefef;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
-
-.el-table th {
-    background-color: #f5f7fa !important;
+/* 代码编辑器 */
+.code-box{
+    margin-top: -20px;
 }
-
-.pagination {
-    margin: 20px 0;
-    text-align: right;
-}
-
-.plugins-tips {
-    padding: 20px 10px;
-    margin-bottom: 20px;
-}
-
-.el-button+.el-tooltip {
-    margin-left: 10px;
-}
-
-.el-table tr:hover {
-    background: #f6faff;
-}
-
-.mgb20 {
-    margin-bottom: 20px;
-}
-
-.move-enter-active,
-.move-leave-active {
-    transition: opacity .5s;
-}
-
-.move-enter,
-.move-leave {
-    opacity: 0;
-}
-
-/*BaseForm*/
-
-.form-box {
-    width: 600px;
-}
-
-.form-box .line {
-    text-align: center;
-}
-
-.el-time-panel__content::after,
-.el-time-panel__content::before {
-    margin-top: -7px;
-}
-
-.el-time-spinner__wrapper .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
-    padding-bottom: 0;
-}
-
-/*Upload*/
-
-.pure-button {
-    width: 150px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color: #fff;
-    border-radius: 3px;
-}
-
-.g-core-image-corp-container .info-aside {
-    height: 45px;
-}
-
-.el-upload--text {
-    background-color: #fff;
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    box-sizing: border-box;
-    width: 360px;
-    height: 180px;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.el-upload--text .el-icon-upload {
-    font-size: 67px;
-    color: #97a8be;
-    margin: 40px 0 16px;
-    line-height: 50px;
-}
-
-.el-upload--text {
-    color: #97a8be;
-    font-size: 14px;
-    text-align: center;
-}
-
-.el-upload--text em {
-    font-style: normal;
-}
-
-/*VueEditor*/
-
-.ql-container {
-    min-height: 400px;
-}
-
-.ql-snow .ql-tooltip {
-    transform: translateX(117.5px) translateY(10px) !important;
-}
-
-.editor-btn {
-    margin-top: 20px;
-}
-
-/*markdown*/
-
-.v-note-wrapper .v-note-panel {
-    min-height: 500px;
+/* pre[class*="language-"].line-numbers.line-numbers */
+pre[class*="language-"].line-numbers.line-numbers{
+    margin: 0;
 }

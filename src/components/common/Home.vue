@@ -39,89 +39,188 @@
         methods: {
             async init() {
                     let data = {
-                        name: " 杨建忠",
-                        items: [{
-                            icon: 'el-icon-lx-home',
-                            index: 'dashboard',
-                            title: '系统首页'
-                        },
-                        {
-                            icon: 'el-icon-lx-cascades',
-                            index: 'table',
-                            title: '基础表格'
-                        },
-                        {
-                            icon: 'el-icon-lx-calendar',
-                            index: '3',
-                            title: '表单相关',
-                            subs: [{
-                                index: 'form',
-                                title: '基本表单'
+                        name: "fan",
+                        items: [
+                            {
+                                index: 'configStart',
+                                title: 'Joint Api',
                             },
                             {
-                                index: '3-2',
-                                title: '三级菜单',
+                                index: 'anchors',
+                                title: 'anchors',
+                                subs: [
+                                    {
+                                        index: 'anchors?id=1',
+                                        title: 'anchors'
+                                        
+                                    },
+                                    {
+                                        index: 'anchors_bottom?id=2',
+                                        title: 'bottom'
+                                    },
+                                    {
+                                        index: 'anchors_bottomLeft?id=3',
+                                        title: 'bottomLeft'
+                                    },
+                                    {
+                                        index: 'anchors_bottomRight?id=4',
+                                        title: 'bottomRight'
+                                    },
+                                    {
+                                        index: 'anchors_center?id=5',
+                                        title: 'center'
+                                    },
+                                    {
+                                        index: 'anchors_custom?id=6',
+                                        title: 'custom'
+                                    },
+                                    {
+                                        index: 'anchors_left?id=7',
+                                        title: 'left'
+                                    },
+                                    {
+                                        index: 'anchors_midSide?id=8',
+                                        title: 'midSide'
+                                    },
+                                    {
+                                        index: 'anchors_modelCenter?id=9',
+                                        title: 'modelCenter'
+                                    },
+                                    {
+                                        index: 'anchors_perpendicular?id=10',
+                                        title: 'perpendicular'
+                                    },
+                                    {
+                                        index: 'anchors_right?id=11',
+                                        title: 'right'
+                                    },
+                                    {
+                                        index: 'anchors_top?id=12',
+                                        title: 'top'
+                                    },
+                                    {
+                                        index: 'anchors_topLeft?id=13',
+                                        title: 'topLeft'
+                                    },
+                                    {
+                                        index: 'anchors_topRight?id=14',
+                                        title: 'topRight'
+                                    }
+                                ]
+                            },
+                            {
+                                index: 'connectionPoints',
+                                title: 'connectionPoints',
+                                subs: [
+                                    {
+                                        index: 'connectionPoints_anchor',
+                                        title: 'anchor'
+                                    },
+                                    {
+                                        index: 'connectionPoints_bbox',
+                                        title: 'bbox'
+                                    },
+                                    {
+                                        index: 'connectionPoints_boundary',
+                                        title: 'boundary'
+                                    },
+                                    {
+                                        index: 'connectionPoints_custom',
+                                        title: 'custom'
+                                    },
+                                    {
+                                        index: 'connectionPoints_rectangle',
+                                        title: 'rectangle'
+                                    }
+                                ]
+                            },
+                            {
+                                index: 'connectionStrategies',
+                                title: 'connectionStrategies',
+                                subs: [
+                                    {
+                                        index: 'connectionStrategies_custom',
+                                        title: 'custom'
+                                    },
+                                    {
+                                        index: 'connectionStrategies_pinAbsolute',
+                                        title: 'pinAbsolute'
+                                    },
+                                    {
+                                        index: 'connectionStrategies_pinRelative',
+                                        title: 'pinRelative'
+                                    },
+                                    {
+                                        index: 'connectionStrategies_useDefaults',
+                                        title: 'useDefaults'
+                                    },
+                                ]
+                            },
+                            {
+                                index: 'connectors',
+                                title: 'connectors',
+                                subs: [
+                                    {
+                                        index: 'connectors_custom',
+                                        title: 'custom'
+                                    },
+                                    {
+                                        index: 'connectors_jumpover',
+                                        title: 'jumpover'
+                                    },
+                                    {
+                                        index: 'connectors_normal',
+                                        title: 'normal'
+                                    },
+                                    {
+                                        index: 'connectors_rounded',
+                                        title: 'rounded'
+                                    },
+                                    {
+                                        index: 'connectors_smooth',
+                                        title: 'smooth'
+                                    }
+                                ]
+                            },
+                            {
+                                icon: 'el-icon-pie-chart',
+                                index: 'charts',
+                                title: 'schart图表'
+                            },
+                            {
+                                icon: 'el-icon-rank',
+                                index: '6',
+                                title: '拖拽组件',
                                 subs: [{
-                                    index: 'editor',
-                                    title: '富文本编辑器'
+                                    index: 'drag',
+                                    title: '拖拽列表'
                                 },
                                 {
-                                    index: 'markdown',
-                                    title: 'markdown编辑器'
+                                    index: 'dialog',
+                                    title: '拖拽弹框'
                                 }
                                 ]
                             },
                             {
-                                index: 'upload',
-                                title: '文件上传'
-                            }
-                            ]
-                        },
-                        {
-                            icon: 'el-icon-lx-emoji',
-                            index: 'icon',
-                            title: '自定义图标'
-                        },
-                        {
-                            icon: 'el-icon-pie-chart',
-                            index: 'charts',
-                            title: 'schart图表'
-                        },
-                        {
-                            icon: 'el-icon-rank',
-                            index: '6',
-                            title: '拖拽组件',
-                            subs: [{
-                                index: 'drag',
-                                title: '拖拽列表'
+                                icon: 'el-icon-lx-global',
+                                index: 'i18n',
+                                title: '国际化功能'
                             },
                             {
-                                index: 'dialog',
-                                title: '拖拽弹框'
-                            }
-                            ]
-                        },
-                        {
-                            icon: 'el-icon-lx-global',
-                            index: 'i18n',
-                            title: '国际化功能'
-                        },
-                        {
-                            icon: 'el-icon-lx-warn',
-                            index: '7',
-                            title: '错误处理',
-                            subs: [{
-                                index: 'permission',
-                                title: '权限测试'
+                                icon: 'el-icon-lx-warn',
+                                index: '7',
+                                title: '错误处理',
+                                subs: [{
+                                    index: 'permission',
+                                    title: '权限测试'
+                                },
+                                {
+                                    index: '404',
+                                    title: '404页面'
+                                }
+                                ]
                             },
-                            {
-                                index: '404',
-                                title: '404页面'
-                            }
-                            ]
-                        },
                         ]
-
                     }
                     let menuArr = [];
 
@@ -138,7 +237,6 @@
 
                         }
                     })(data.items)
-                    console.log(menuArr);
                     this.updateMainInfo(data);
             },
             ...mapMutations(["updateMainInfo"])

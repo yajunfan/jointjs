@@ -3,7 +3,13 @@ import Router from 'vue-router';
 
 
 Vue.use(Router);
+// 教程
+import StartTutorial from '../components/page/tutorial/start.vue';
+import PaperGraph from '../components/page/tutorial/paper-graph.vue';
 
+// 配置
+import ConfigStart from "../components/page/configuration/start.vue";
+import Anchors from "../components/page/configuration/anchors/index.vue";
 
 export default new Router({
     routes: [
@@ -18,8 +24,91 @@ export default new Router({
             children: [
                 {
                     path: '/startTutorial',
-                    component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/tutorial/start.vue'),
+                    component: StartTutorial,
+                    // component:  () => import(/* webpackChunkName: "dashboard" */ '../components/page/tutorial/start.vue'),
                     meta: { title: '开始教程' }
+                },
+                {
+                    path: '/PaperGraph',
+                    component: PaperGraph,
+                    // component: () => import(/* webpackChunkName: "dashboard" */ '../components/page/tutorial/paper-graph.vue'),
+                    meta: { title: 'PaperGraph' }
+                },
+                // 配置项
+                {
+                    path: '/configStart',
+                    component: ConfigStart,
+                    meta: { title: 'Joint Api' }
+                },
+                {
+                    path: '/anchors',
+                    component: Anchors,
+                    meta: { title: 'anchors' }
+                },
+                {
+                    path: '/anchors_bottom',
+                    component: Anchors,
+                    meta: { title: 'bottom' }
+                },
+                {
+                    path: '/anchors_bottomLeft',
+                    component: Anchors,
+                    meta: { title: 'bottomLeft' }
+                },
+                {
+                    path: '/anchors_bottomRight',
+                    component: Anchors,
+                    meta: { title: 'bottomRight' }
+                },
+                {
+                    path: '/anchors_center',
+                    component: Anchors,
+                    meta: { title: 'center' }
+                },
+                {
+                    path: '/anchors_custom',
+                    component: Anchors,
+                    meta: { title: 'custom' }
+                },
+                {
+                    path: '/anchors_left',
+                    component: Anchors,
+                    meta: { title: 'left' }
+                },
+                {
+                    path: '/anchors_midSide',
+                    component: Anchors,
+                    meta: { title: 'midSide' }
+                },
+                {
+                    path: '/anchors_modelCenter',
+                    component: Anchors,
+                    meta: { title: 'modelCenter' }
+                },
+                {
+                    path: '/anchors_perpendicular',
+                    component: Anchors,
+                    meta: { title: 'perpendicular' }
+                },
+                {
+                    path: '/anchors_right',
+                    component: Anchors,
+                    meta: { title: 'right' }
+                },
+                {
+                    path: '/anchors_top',
+                    component: Anchors,
+                    meta: { title: 'top' }
+                },
+                {
+                    path: '/anchors_topLeft',
+                    component: Anchors,
+                    meta: { title: 'topLeft' }
+                },
+                {
+                    path: '/anchors_topRight',
+                    component: Anchors,
+                    meta: { title: 'topRight' }
                 },
                 {
                     path: '/404',
@@ -49,6 +138,7 @@ router.beforeEach((to, from, next) => {
     }else if(!menuArr.includes(to.path.substr(1))){
         next("/403")
     }else {
+
         next();
     }
 });
