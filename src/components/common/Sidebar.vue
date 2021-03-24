@@ -2,7 +2,8 @@
     <div class="sidebar b-s-bb">
         <el-tabs v-model="activeName"  class="b-s-bb" @tab-click="handleTabChange">
             <el-tab-pane label="教程" name="tutorial">
-                <el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="white" text-color="black"  unique-opened router>
+                <el-menu class="sidebar-el-menu" :default-active="onRoutes" background-color="white" text-color="black" 
+                    unique-opened router >
                     <template v-for="item in tutorialLists">
                         <template>
                             <el-menu-item :index="item.index" :key="item.index">
@@ -68,7 +69,6 @@ export default {
     },
     computed: {
         onRoutes() {
-            console.log(777,this.$route)
              let obj={
                 index:this.$route.query.id,
                 name:this.$route.meta.title
@@ -96,12 +96,15 @@ export default {
                 case "option":
                     // this.$router.push({path:'/configStart'}); 
                     break; 
-            }
+            };
+            sessionStorage.setItem("tabName",this.activeName);
         },
         routhChange(path){
-            console.log(777,path)
             this.$router.push({path:"/"+path}); 
         }
+    },
+    created(){
+        this.activeName = sessionStorage.getItem("tabName")?sessionStorage.getItem("tabName"):"tutorial";
     }
 };
 </script>

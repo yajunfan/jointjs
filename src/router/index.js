@@ -3,14 +3,18 @@ import Router from 'vue-router';
 
 
 Vue.use(Router);
-// 教程
+/**教程 */
 import StartTutorial from '../components/page/tutorial/start.vue';
 import PaperGraph from '../components/page/tutorial/paper-graph.vue';
 
-// 配置
+/**配置项手册 */
 import ConfigStart from "../components/page/configuration/start.vue";
+// ancohors
 import Anchors from "../components/page/configuration/anchors/index.vue";
-
+//ConnectionPoint
+import ConnectionPoint from "../components/page/configuration/connectionPoint/index.vue";
+// ConnectionStrategies
+import ConnectionStrategies from "../components/page/configuration/connectionStrategies/index.vue";
 export default new Router({
     routes: [
         {
@@ -111,6 +115,41 @@ export default new Router({
                     meta: { title: 'topRight' }
                 },
                 {
+                    path: '/connectionPoints',
+                    component: ConnectionPoint,
+                    meta: { title: 'connectionPoints' }
+                },
+                {
+                    path: '/connectionPoints_anchor',
+                    component: ConnectionPoint,
+                    meta: { title: 'anchor' }
+                },
+                {
+                    path: '/connectionPoints_bbox',
+                    component: ConnectionPoint,
+                    meta: { title: 'bbox' }
+                },
+                {
+                    path: '/connectionPoints_boundary',
+                    component: ConnectionPoint,
+                    meta: { title: 'boundary' }
+                },
+                {
+                    path: '/connectionPoints_rectangle',
+                    component: ConnectionPoint,
+                    meta: { title: 'rectangle' }
+                },
+                {
+                    path: '/connectionPoints_custom',
+                    component: ConnectionPoint,
+                    meta: { title: 'custom' }
+                },
+                {
+                    path: '/connectionStrategies',
+                    component: ConnectionStrategies,
+                    meta: { title: 'connectionStrategies' }
+                },
+                {
                     path: '/404',
                     component: () => import(/* webpackChunkName: "404" */ '../components/page/404.vue'),
                     meta: { title: '404' }
@@ -131,7 +170,8 @@ export default new Router({
 });
 const router = new Router({
 	mode: 'hash',
-})
+});
+
 router.beforeEach((to, from, next) => {
     if (to.path == "/403" || to.path == "/404"||to.path=="/login") {
         next();

@@ -3,7 +3,7 @@
         <v-head></v-head>
         <v-sidebar></v-sidebar>
         <div class="content-box" :class="{'content-collapse':collapse}">
-            <div class="content">
+            <div class="content" id="content">
                 <transition name="move" mode="out-in">
                     <router-view></router-view>
                 </transition>
@@ -50,62 +50,57 @@
                                 title: 'anchors',
                                 subs: [
                                     {
-                                        index: 'anchors?id=1',
-                                        title: 'anchors'
-                                        
-                                    },
-                                    {
-                                        index: 'anchors_bottom?id=2',
-                                        title: 'bottom'
-                                    },
-                                    {
-                                        index: 'anchors_bottomLeft?id=3',
-                                        title: 'bottomLeft'
-                                    },
-                                    {
-                                        index: 'anchors_bottomRight?id=4',
-                                        title: 'bottomRight'
-                                    },
-                                    {
-                                        index: 'anchors_center?id=5',
+                                        index: 'anchors_center',
                                         title: 'center'
                                     },
                                     {
-                                        index: 'anchors_custom?id=6',
-                                        title: 'custom'
-                                    },
-                                    {
-                                        index: 'anchors_left?id=7',
-                                        title: 'left'
-                                    },
-                                    {
-                                        index: 'anchors_midSide?id=8',
-                                        title: 'midSide'
-                                    },
-                                    {
-                                        index: 'anchors_modelCenter?id=9',
+                                        index: 'anchors_modelCenter',
                                         title: 'modelCenter'
                                     },
                                     {
-                                        index: 'anchors_perpendicular?id=10',
+                                        index: 'anchors_perpendicular',
                                         title: 'perpendicular'
                                     },
                                     {
-                                        index: 'anchors_right?id=11',
+                                        index: 'anchors_midSide',
+                                        title: 'midSide'
+                                    },
+                                    {
+                                        index: 'anchors_bottom',
+                                        title: 'bottom'
+                                    },
+                                    {
+                                        index: 'anchors_left',
+                                        title: 'left'
+                                    },
+                                    {
+                                        index: 'anchors_right',
                                         title: 'right'
                                     },
                                     {
-                                        index: 'anchors_top?id=12',
+                                        index: 'anchors_top',
                                         title: 'top'
                                     },
                                     {
-                                        index: 'anchors_topLeft?id=13',
+                                        index: 'anchors_bottomLeft',
+                                        title: 'bottomLeft'
+                                    },
+                                    {
+                                        index: 'anchors_bottomRight',
+                                        title: 'bottomRight'
+                                    },
+                                    {
+                                        index: 'anchors_topLeft',
                                         title: 'topLeft'
                                     },
                                     {
-                                        index: 'anchors_topRight?id=14',
+                                        index: 'anchors_topRight',
                                         title: 'topRight'
-                                    }
+                                    },
+                                    {
+                                        index: 'anchors_custom',
+                                        title: 'custom'
+                                    },
                                 ]
                             },
                             {
@@ -125,12 +120,12 @@
                                         title: 'boundary'
                                     },
                                     {
-                                        index: 'connectionPoints_custom',
-                                        title: 'custom'
-                                    },
-                                    {
                                         index: 'connectionPoints_rectangle',
                                         title: 'rectangle'
+                                    },
+                                    {
+                                        index: 'connectionPoints_custom',
+                                        title: 'custom'
                                     }
                                 ]
                             },
@@ -240,6 +235,11 @@
                     this.updateMainInfo(data);
             },
             ...mapMutations(["updateMainInfo"])
+        },
+        mounted(){
+            // document.getElementById("content").addEventListener("scroll",function(e){
+            //     bus.$emit("scroll");
+            // });
         }
     };
 

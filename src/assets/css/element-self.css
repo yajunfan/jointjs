@@ -46,6 +46,9 @@
 .el-table th {
     background-color: #f5f7fa !important;
 }
+.el-table th, .el-table tr{
+    font-size:14px;
+}
 /* upload */
 .el-upload--text {
     background-color: #fff;

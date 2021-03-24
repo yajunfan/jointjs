@@ -169,29 +169,86 @@ export default {
             this_.paper = new joint.dia.Paper({
                 el:document.getElementById("page"),
                 width:1200,
-                height:100,
+                height:500,
                 model:this_.graph,
-                // defaultAnchor:{
-                //         name: 'topRight', 
-                //     args: {
-                //         rotate: true,
-                //         padding: 20
-                //     }
+                // defaultConnectionPoint:{name:"boundary",args:{
+                //     insideout:true,
+                //     sticky:false
+                // }},
+                defaultConnectionPoint:function(endPathSegmentLine, endView, endMagnet, args){
+                    console.log(arguments)
+                        var angle = endView.model.angle();
+                        var origin = endView.model.getBBox().center();
+                       
+                        endView.model.rotate(origin, angle);
+                        // // identify the side nearest to pointer coords
+                        var bbox = endView.getNodeUnrotatedBBox(endMagnet);
+                         console.log(2222,bbox)
+                        var anchor;
+                        var side = bbox.sideNearestToPoint( endView.model);
+                        switch (side) {
+                            case 'left': anchor = bbox.leftMiddle(); break;
+                            case 'right': anchor = bbox.rightMiddle(); break;
+                            case 'top': anchor = bbox.topMiddle(); break;
+                            case 'bottom': anchor = bbox.bottomMiddle(); break;
+                        };
+                        console.log(side,anchor)
+                        // // rotate the anchor according to original rotation of restricted area
+                        let newobj = {
+                            x:origin.x,
+                            y:origin.y
+                        }
+                        return anchor.rotate(newobj, angle+20);
+                },
+                defaultAnchor:{name:'center'},
+                // defaultAnchor:function(endView, endMagnet, anchorReference, args){
+                //         var angle = endView.model.angle();
+                //         var origin = endView.model.getBBox().center();
+                       
+                //         endView.model.rotate(origin, angle);
+                //         // // identify the side nearest to pointer coords
+                //         var bbox = endView.getNodeUnrotatedBBox(endMagnet);
+                //          console.log(bbox,origin)
+                //         var anchor;
+                //         var side = bbox.sideNearestToPoint( endView.model);
+                //         console.log(side)
+                //         switch (side) {
+                //             case 'left': anchor = bbox.leftMiddle(); break;
+                //             case 'right': anchor = bbox.rightMiddle(); break;
+                //             case 'top': anchor = bbox.topMiddle(); break;
+                //             case 'bottom': anchor = bbox.bottomMiddle(); break;
+                //         }
+                //         // // rotate the anchor according to original rotation of restricted area
+                //         let newobj = {
+                //             x:origin.x-200,
+                //             y:origin.y-100
+                //         }
+                //         return anchor.rotate(newobj, angle+20);
                 // },
+                // {
+                //         name: 'right', 
+                //     // args: {
+                //     //     // rotate: false,
+                //     //     // padding: 20
+                //     // }
+                // },
+                // defaultLink:new joint.shapes.standard.Link(),
+                
                 defaultConnector: { name: "rounded", args: { radius: 5 }  },
             });
             var rect4 = createStart();
             rect4.addTo(this_.graph);
             var rect = new joint.shapes.standard.Rectangle();
-            rect.position(500, 30);
+            rect.position(500, 140);
             rect.resize(100, 40);
             rect.attr({
                 body: {
-                    fill: '#527356'
+                    fill: 'white',
+                    stroke:"#527356"
                 },
                 label: {
                     text: 'Hello',
-                    fill: 'white'
+                    fill: 'black'
                 }
             });
             rect.addTo(this_.graph);
@@ -203,16 +260,18 @@ export default {
             rect2.attr('label/text', 'World!');
             rect2.addTo(this_.graph);
 
-            // var rect3 = rect.clone();
-            // rect3.translate(600, 0);
-            // rect3.attr('label/text', '测试');
-            // rect3.addTo(this_.graph);
-            // var rect4 = createStart();
-            // rect4.addTo(this_.graph);
-            // var link = new joint.shapes.standard.Link();
-            // link.source(rect);
-            // link.target(rect2);
-            // link.addTo(this_.graph);
+            var link = new joint.shapes.standard.Link();
+            link.source(rect);
+            link.target(rect2,{
+              anchor : {
+                name: 'right',
+                args: {
+                    // rotate: true,
+                    // padding: 10
+                }
+            }
+            });
+            link.addTo(this_.graph);
         },
         initShape(){
             
